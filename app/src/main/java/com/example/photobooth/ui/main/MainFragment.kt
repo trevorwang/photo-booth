@@ -16,6 +16,7 @@ import com.example.library.data.Photo
 import com.example.library.data.PhotoRepo
 import com.example.library.utils.PhotoUtil
 import com.example.photobooth.R
+import com.example.photobooth.ui.PhotosActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
@@ -47,7 +48,9 @@ class MainFragment : Fragment() {
                     startActivityForResult(intent, REQUEST_IMAGE_CAPTURE)
                 }
             }
-            view_photo.setOnClickListener { viewModel.viewPhotos() }
+        }
+        view_photo.setOnClickListener {
+            startActivity(Intent(context, PhotosActivity::class.java))
         }
     }
 

@@ -10,6 +10,7 @@ import androidx.core.content.FileProvider
 import androidx.lifecycle.ViewModel
 import com.example.library.data.Photo
 import com.example.library.data.PhotoRepo
+import com.example.photobooth.R
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -22,11 +23,6 @@ import java.util.*
 const val REQUEST_IMAGE_CAPTURE = 1010
 
 class MainViewModel : ViewModel() {
-
-    fun viewPhotos() {
-        TODO("Viewing photos function is not implemented.")
-    }
-
     fun savePhoto(context: Context, photo: Photo): Disposable {
         return PhotoRepo.savePhoto(photo)
             .subscribeOn(Schedulers.io())
