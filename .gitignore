@@ -8,3 +8,6 @@
 .externalNativeBuild
 .cxx
 node_modules
+.project
+.settings
+bin
