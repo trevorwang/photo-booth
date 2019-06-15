@@ -11,7 +11,12 @@ import com.example.library.utils.toSimple
 import com.example.photobooth.R
 import com.squareup.picasso.Picasso
 
-class PhotoAdapter() : RecyclerView.Adapter<PhotoAdapter.PhotoHolder>() {
+class PhotoAdapter : RecyclerView.Adapter<PhotoAdapter.PhotoHolder>() {
+    interface OnItemClickListener {
+        fun onItemClicked(photo: Photo)
+    }
+
+    var itemClickListener: OnItemClickListener? = null
 
     var photos = listOf<Photo>()
         set(value) {
@@ -29,7 +34,9 @@ class PhotoAdapter() : RecyclerView.Adapter<PhotoAdapter.PhotoHolder>() {
     }
 
     override fun onBindViewHolder(holder: PhotoHolder, position: Int) {
-        holder.bindData(photos[position])
+        val photo = photos[position]
+        holder.bindData(photo)
+        holder.itemView.setOnClickListener { itemClickListener?.onItemClicked(photo) }
     }
 
     class PhotoHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

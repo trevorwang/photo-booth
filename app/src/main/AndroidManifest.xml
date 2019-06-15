@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.PhotosActivity"/>
+        <activity android:name=".ui.ImagePreviewActivity"/>
     </application>
 
 </manifest>
