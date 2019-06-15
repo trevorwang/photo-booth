@@ -1,12 +1,11 @@
 package com.example.photobooth.ui
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.example.photobooth.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.image_preview_activity.*
 
-class ImagePreviewActivity : AppCompatActivity() {
+class ImagePreviewActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

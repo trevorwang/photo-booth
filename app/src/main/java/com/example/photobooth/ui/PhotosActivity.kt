@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.photobooth.R
 import com.example.photobooth.ui.photos.PhotosFragment
 
-class PhotosActivity : AppCompatActivity() {
+class PhotosActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
