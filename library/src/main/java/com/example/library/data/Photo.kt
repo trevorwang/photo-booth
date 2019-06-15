@@ -6,7 +6,7 @@ import java.util.*
 
 @Entity
 data class Photo(
-    @PrimaryKey val id: Long,
+    @PrimaryKey(autoGenerate = true) var id: Long = 0,
     val name: String,
     val uri: String,
     val createdAt: Date

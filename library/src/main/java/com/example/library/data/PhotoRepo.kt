@@ -1,10 +1,13 @@
 package com.example.library.data
 
+import android.content.Context
+import com.example.library.data.source.LocalPhotoDataSource
 import com.example.library.data.source.PhotoDataSource
 import io.reactivex.Completable
 import io.reactivex.Observable
 
-class PhotoRepo(val dataSource: PhotoDataSource) {
+object PhotoRepo {
+    private lateinit var dataSource: PhotoDataSource
 
     fun savePhoto(photo: Photo): Completable {
         return dataSource.savePhoto(photo)
@@ -12,5 +15,9 @@ class PhotoRepo(val dataSource: PhotoDataSource) {
 
     fun getPhotos(): Observable<Array<Photo>> {
         return dataSource.loadAllPhotos()
+    }
+
+    fun setup(context: Context) {
+        dataSource = LocalPhotoDataSource(context)
     }
 }
