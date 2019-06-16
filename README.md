@@ -1,4 +1,4 @@
-#Photo Booth
+# Photo Booth
 
 ## How to setup
 
@@ -62,6 +62,7 @@ The project is split to 2 modules, `app` and `library`. All database and file op
 
 ## What to be improved
 
+* Error handling
 * Remove the captured photo if user click cancel of the dialog
 * Provide an empty page for empty and loading states for list page
 * Provide loading state for full screen preview page
