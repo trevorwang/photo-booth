@@ -7,7 +7,9 @@ import io.reactivex.Observable
 interface PhotoDataSource {
     fun savePhoto(photo: Photo): Completable
 
-    fun loadAllPhotos(): Observable<Array<Photo>>
+    fun loadAllPhotos(): Observable<List<Photo>>
 
     fun updatePhoto(photo: Photo): Completable
+
+    fun deleteAllPhotos(): Completable
 }

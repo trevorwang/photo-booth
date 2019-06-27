@@ -63,4 +63,16 @@ class PhotoDaoTest {
         photoDao.update(photo2)
         assertThat(photoDao.loadAllPhotos().filter { it.id == 1L }).containsExactly(photo2)
     }
+
+
+    @Test
+    fun deleteAllPhotos_emptyReceivedPhoto() {
+        val photos = arrayListOf(
+            Photo(1, "hello", "file://filepath", Date()),
+            Photo(2, "worldi", "file://filepath", Date())
+        )
+        photos.forEach { photoDao.insert(it) }
+        photoDao.deleteAll()
+        assertThat(photoDao.loadAllPhotos()).isEmpty()
+    }
 }

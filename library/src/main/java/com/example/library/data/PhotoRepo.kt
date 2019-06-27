@@ -1,7 +1,5 @@
 package com.example.library.data
 
-import android.content.Context
-import com.example.library.data.source.LocalPhotoDataSource
 import com.example.library.data.source.PhotoDataSource
 import io.reactivex.Completable
 import io.reactivex.Observable
@@ -13,11 +11,15 @@ object PhotoRepo {
         return dataSource.savePhoto(photo)
     }
 
-    fun getPhotos(): Observable<Array<Photo>> {
+    fun getPhotos(): Observable<List<Photo>> {
         return dataSource.loadAllPhotos()
     }
 
-    fun setup(context: Context) {
-        dataSource = LocalPhotoDataSource(context)
+    fun setup(dataSource: PhotoDataSource) {
+        this.dataSource = dataSource
+    }
+
+    fun deleteAllPhotos(): Completable {
+        return dataSource.deleteAllPhotos()
     }
 }
