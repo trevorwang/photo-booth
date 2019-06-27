@@ -10,7 +10,7 @@ interface PhotoDao {
     fun insert(vararg photo: Photo)
 
     @Query("SELECT * FROM photo")
-    fun loadAllUsers(): Array<Photo>
+    fun loadAllPhotos(): Array<Photo>
 
     @Delete
     fun delete(vararg photo: Photo)

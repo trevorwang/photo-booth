@@ -16,7 +16,7 @@ import java.io.IOException
 import java.util.*
 
 @RunWith(AndroidJUnit4::class)
-class PhotoReadWriteTest {
+class PhotoDaoTest {
 
     private lateinit var photoDao: PhotoDao
     private lateinit var db: AppDataBase
@@ -34,15 +34,24 @@ class PhotoReadWriteTest {
     @After
     @Throws(IOException::class)
     fun closeDb() {
+        db.clearAllTables()
         db.close()
     }
 
+
     @Test
     @Throws(Exception::class)
-    fun writePhotoAndReadAll() {
+    fun savePhoto_retrievesPhoto() {
         val photo = Photo(1, "hello", "file://filepath", Date())
         photoDao.insert(photo)
-        assertThat(photoDao.loadAllUsers().filter { it.id == 1L }).hasSize(1)
+        assertThat(photoDao.loadAllPhotos().filter { it.id == 1L }).hasSize(1)
     }
 
+    @Test
+    fun deletePhoto_emptyArrayOfRetrievedPhoto() {
+        val photo = Photo(1, "hello", "file://filepath", Date())
+        photoDao.insert(photo)
+        photoDao.delete(photo)
+        assertThat(photoDao.loadAllPhotos()).isEmpty()
+    }
 }

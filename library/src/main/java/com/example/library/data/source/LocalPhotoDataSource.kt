@@ -16,7 +16,7 @@ class LocalPhotoDataSource(context: Context) : PhotoDataSource {
 
     override fun loadAllPhotos(): Observable<Array<Photo>> {
         return Observable.fromCallable {
-            db.photoDao().loadAllUsers()
+            db.photoDao().loadAllPhotos()
         }
     }
 }
