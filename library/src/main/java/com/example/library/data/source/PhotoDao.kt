@@ -14,4 +14,8 @@ interface PhotoDao {
 
     @Delete
     fun delete(vararg photo: Photo)
+
+
+    @Update
+    fun update(vararg photo: Photo)
 }

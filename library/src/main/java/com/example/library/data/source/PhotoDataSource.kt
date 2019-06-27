@@ -8,4 +8,6 @@ interface PhotoDataSource {
     fun savePhoto(photo: Photo): Completable
 
     fun loadAllPhotos(): Observable<Array<Photo>>
+
+    fun updatePhoto(photo: Photo): Completable
 }

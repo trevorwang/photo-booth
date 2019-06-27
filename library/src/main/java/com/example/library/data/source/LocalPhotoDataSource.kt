@@ -19,4 +19,10 @@ class LocalPhotoDataSource(context: Context) : PhotoDataSource {
             db.photoDao().loadAllPhotos()
         }
     }
+
+    override fun updatePhoto(photo: Photo): Completable {
+        return Completable.fromAction {
+            db.photoDao().update(photo)
+        }
+    }
 }
